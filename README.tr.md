@@ -78,13 +78,13 @@ Klasörü Obsidian vault olarak da açabilirsin. Grafik şu hiyerarşiyi göster
 
 ![Seçici agent kütüphanesinin Obsidian grafik görünümü](docs/images/obsidian-agent-graph.png)
 
-Ortadaki beyaz düğüm kütüphanenin başlangıç noktası olan `Ana Sayfa`dır. Büyük
+Grafikteki beyaz `Home` düğümü kütüphanenin başlangıç noktasıdır. Büyük
 renkli düğümlerin her biri bir uzmanlık kategorisini, çevresindeki küçük düğümler
 ise yalnızca o kategoriye ait agent profillerini gösterir. Böylece bağlamlar tek
 bir belirsiz kümede karışmak yerine görsel olarak birbirinden ayrılır.
 
 ```text
-Ana Sayfa → 17 kategori merkezi → ilgili agent profilleri
+Home → 17 kategori merkezi → ilgili agent profilleri
 ```
 
 Kategori merkezleri renkli ve daha büyük görünür. Bu görsel harita insan
@@ -98,12 +98,12 @@ AI-Agents/
 ├── .claude/skills/workspace-router/  # canonical router + Claude keşfi
 ├── .agents/skills/workspace-router   # Codex bağlantısı
 ├── agency-agents/                    # sabitlenmiş upstream alt modül
-├── Agent Kütüphanesi/                # Obsidian kategori haritaları
+├── Agent Library/                    # Obsidian kategori haritaları
 ├── config/                            # karantina ve tekrar üretilebilir ayarlar
 ├── scripts/                           # kurulum, üretim ve doğrulama
 ├── AGENTS.md                          # Codex bakım kuralları
 ├── CLAUDE.md                          # Claude bakım kuralları
-└── Ana Sayfa.md                       # Obsidian başlangıç noktası
+└── Home.md                            # Obsidian başlangıç noktası
 ```
 
 ## Bakım

@@ -101,18 +101,18 @@ Open this directory as an Obsidian vault for a visual map:
 
 ![Obsidian graph showing the selective agent library](docs/images/obsidian-agent-graph.png)
 
-The white center node is `Ana Sayfa`, the library's navigation root. Each large
+The white `Home` node is the library's navigation root. Each large
 colored node is one specialist category, and the smaller nodes around it are the
 profiles in that category. This keeps domains visually separated instead of
 mixing every profile into one undifferentiated graph.
 
 ```text
-Ana Sayfa → 17 category hubs → specialist profiles
+Home → 17 category hubs → specialist profiles
 ```
 
-The Turkish filename `Ana Sayfa` means “Home”. Category hubs are color-coded and
-larger than profile nodes. This map is for human navigation; Claude Code and Codex
-route through the compact catalog independently of Obsidian.
+Category hubs are color-coded and larger than profile nodes. This map is for
+human navigation; Claude Code and Codex route through the compact catalog
+independently of Obsidian.
 
 ## Repository layout
 
@@ -121,10 +121,10 @@ AI-Agents/
 ├── .claude/skills/workspace-router/  # canonical router + Claude discovery
 ├── .agents/skills/workspace-router   # Codex link to the canonical router
 ├── agency-agents/                    # pinned upstream Git submodule
-├── Agent Kütüphanesi/                # generated Obsidian category maps
+├── Agent Library/                    # generated Obsidian category maps
 ├── config/                            # quarantine and reproducible settings
 ├── scripts/                           # setup, generation, and validation
-├── Ana Sayfa.md                       # Obsidian graph entry point
+├── Home.md                            # Obsidian graph entry point
 ├── AGENTS.md                           # Codex maintenance rules
 ├── CLAUDE.md                          # repository maintenance rules
 └── README.md

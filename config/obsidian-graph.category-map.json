@@ -1,6 +1,6 @@
 {
   "collapse-filter": true,
-  "search": "(path:\"Ana Sayfa.md\" OR path:\"Agent Kütüphanesi\" OR path:\"agency-agents/academic\" OR path:\"agency-agents/design\" OR path:\"agency-agents/engineering\" OR path:\"agency-agents/finance\" OR path:\"agency-agents/game-development\" OR path:\"agency-agents/gis\" OR path:\"agency-agents/healthcare\" OR path:\"agency-agents/marketing\" OR path:\"agency-agents/paid-media\" OR path:\"agency-agents/product\" OR path:\"agency-agents/project-management\" OR path:\"agency-agents/sales\" OR path:\"agency-agents/security\" OR path:\"agency-agents/spatial-computing\" OR path:\"agency-agents/specialized\" OR path:\"agency-agents/support\" OR path:\"agency-agents/testing\") -path:\"agency-agents/marketing/marketing-carousel-growth-engine.md\"",
+  "search": "(path:\"Home.md\" OR path:\"Agent Library\" OR path:\"agency-agents/academic\" OR path:\"agency-agents/design\" OR path:\"agency-agents/engineering\" OR path:\"agency-agents/finance\" OR path:\"agency-agents/game-development\" OR path:\"agency-agents/gis\" OR path:\"agency-agents/healthcare\" OR path:\"agency-agents/marketing\" OR path:\"agency-agents/paid-media\" OR path:\"agency-agents/product\" OR path:\"agency-agents/project-management\" OR path:\"agency-agents/sales\" OR path:\"agency-agents/security\" OR path:\"agency-agents/spatial-computing\" OR path:\"agency-agents/specialized\" OR path:\"agency-agents/support\" OR path:\"agency-agents/testing\") -path:\"agency-agents/marketing/marketing-carousel-growth-engine.md\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
@@ -8,75 +8,75 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:\"Ana Sayfa.md\"",
+      "query": "path:\"Home.md\"",
       "color": { "a": 1, "rgb": 16777215 }
     },
     {
-      "query": "path:\"agency-agents/academic\" OR path:\"Agent Kütüphanesi/Kategoriler/academic\"",
+      "query": "path:\"agency-agents/academic\" OR path:\"Agent Library/Categories/academic\"",
       "color": { "a": 1, "rgb": 9133302 }
     },
     {
-      "query": "path:\"agency-agents/design\" OR path:\"Agent Kütüphanesi/Kategoriler/design\"",
+      "query": "path:\"agency-agents/design\" OR path:\"Agent Library/Categories/design\"",
       "color": { "a": 1, "rgb": 15485081 }
     },
     {
-      "query": "path:\"agency-agents/engineering\" OR path:\"Agent Kütüphanesi/Kategoriler/engineering\"",
+      "query": "path:\"agency-agents/engineering\" OR path:\"Agent Library/Categories/engineering\"",
       "color": { "a": 1, "rgb": 3900150 }
     },
     {
-      "query": "path:\"agency-agents/finance\" OR path:\"Agent Kütüphanesi/Kategoriler/finance\"",
+      "query": "path:\"agency-agents/finance\" OR path:\"Agent Library/Categories/finance\"",
       "color": { "a": 1, "rgb": 2278750 }
     },
     {
-      "query": "path:\"agency-agents/game-development\" OR path:\"Agent Kütüphanesi/Kategoriler/game-development\"",
+      "query": "path:\"agency-agents/game-development\" OR path:\"Agent Library/Categories/game-development\"",
       "color": { "a": 1, "rgb": 11032055 }
     },
     {
-      "query": "path:\"agency-agents/gis\" OR path:\"Agent Kütüphanesi/Kategoriler/gis\"",
+      "query": "path:\"agency-agents/gis\" OR path:\"Agent Library/Categories/gis\"",
       "color": { "a": 1, "rgb": 1357990 }
     },
     {
-      "query": "path:\"agency-agents/healthcare\" OR path:\"Agent Kütüphanesi/Kategoriler/healthcare\"",
+      "query": "path:\"agency-agents/healthcare\" OR path:\"Agent Library/Categories/healthcare\"",
       "color": { "a": 1, "rgb": 889992 }
     },
     {
-      "query": "path:\"agency-agents/marketing\" OR path:\"Agent Kütüphanesi/Kategoriler/marketing\"",
+      "query": "path:\"agency-agents/marketing\" OR path:\"Agent Library/Categories/marketing\"",
       "color": { "a": 1, "rgb": 16347926 }
     },
     {
-      "query": "path:\"agency-agents/paid-media\" OR path:\"Agent Kütüphanesi/Kategoriler/paid-media\"",
+      "query": "path:\"agency-agents/paid-media\" OR path:\"Agent Library/Categories/paid-media\"",
       "color": { "a": 1, "rgb": 15381256 }
     },
     {
-      "query": "path:\"agency-agents/product\" OR path:\"Agent Kütüphanesi/Kategoriler/product\"",
+      "query": "path:\"agency-agents/product\" OR path:\"Agent Library/Categories/product\"",
       "color": { "a": 1, "rgb": 14239471 }
     },
     {
-      "query": "path:\"agency-agents/project-management\" OR path:\"Agent Kütüphanesi/Kategoriler/project-management\"",
+      "query": "path:\"agency-agents/project-management\" OR path:\"Agent Library/Categories/project-management\"",
       "color": { "a": 1, "rgb": 959977 }
     },
     {
-      "query": "path:\"agency-agents/sales\" OR path:\"Agent Kütüphanesi/Kategoriler/sales\"",
+      "query": "path:\"agency-agents/sales\" OR path:\"Agent Library/Categories/sales\"",
       "color": { "a": 1, "rgb": 1096065 }
     },
     {
-      "query": "path:\"agency-agents/security\" OR path:\"Agent Kütüphanesi/Kategoriler/security\"",
+      "query": "path:\"agency-agents/security\" OR path:\"Agent Library/Categories/security\"",
       "color": { "a": 1, "rgb": 15680580 }
     },
     {
-      "query": "path:\"agency-agents/spatial-computing\" OR path:\"Agent Kütüphanesi/Kategoriler/spatial-computing\"",
+      "query": "path:\"agency-agents/spatial-computing\" OR path:\"Agent Library/Categories/spatial-computing\"",
       "color": { "a": 1, "rgb": 440020 }
     },
     {
-      "query": "path:\"agency-agents/specialized\" OR path:\"Agent Kütüphanesi/Kategoriler/specialized\"",
+      "query": "path:\"agency-agents/specialized\" OR path:\"Agent Library/Categories/specialized\"",
       "color": { "a": 1, "rgb": 6514417 }
     },
     {
-      "query": "path:\"agency-agents/support\" OR path:\"Agent Kütüphanesi/Kategoriler/support\"",
+      "query": "path:\"agency-agents/support\" OR path:\"Agent Library/Categories/support\"",
       "color": { "a": 1, "rgb": 8702998 }
     },
     {
-      "query": "path:\"agency-agents/testing\" OR path:\"Agent Kütüphanesi/Kategoriler/testing\"",
+      "query": "path:\"agency-agents/testing\" OR path:\"Agent Library/Categories/testing\"",
       "color": { "a": 1, "rgb": 16096779 }
     }
   ],

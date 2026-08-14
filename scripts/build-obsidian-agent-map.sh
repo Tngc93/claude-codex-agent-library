@@ -7,8 +7,8 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 SOURCE_DIR="$ROOT_DIR/agency-agents"
 DIVISIONS_FILE="$SOURCE_DIR/divisions.json"
 CATALOG="$ROOT_DIR/.claude/skills/workspace-router/references/agent-catalog.tsv"
-MAP_ROOT="$ROOT_DIR/Agent Kütüphanesi"
-ROOT_MAP="$ROOT_DIR/Ana Sayfa.md"
+MAP_ROOT="$ROOT_DIR/Agent Library"
+ROOT_MAP="$ROOT_DIR/Home.md"
 
 frontmatter_field() {
   local field="$1" file="$2"
@@ -24,28 +24,28 @@ frontmatter_field() {
   ' "$file"
 }
 
-[[ -f "$DIVISIONS_FILE" ]] || { printf 'Kategori tanımları bulunamadı: %s\n' "$DIVISIONS_FILE" >&2; exit 1; }
-[[ -f "$CATALOG" ]] || { printf 'Agent kataloğu bulunamadı: %s\n' "$CATALOG" >&2; exit 1; }
+[[ -f "$DIVISIONS_FILE" ]] || { printf 'Category definitions not found: %s\n' "$DIVISIONS_FILE" >&2; exit 1; }
+[[ -f "$CATALOG" ]] || { printf 'Agent catalog not found: %s\n' "$CATALOG" >&2; exit 1; }
 
-mkdir -p "$MAP_ROOT/Kategoriler"
+mkdir -p "$MAP_ROOT/Categories"
 
 {
   printf '%s\n' '---'
   printf '%s\n' 'tags:' '  - agent-map' '  - agent-map/root'
-  printf '%s\n' '---' '' '# AI Agent Kütüphanesi' ''
-  printf '%s\n' '> Obsidian gezinme merkezi. Claude Code seçimi bu görünümden bağımsız olarak küçük katalog üzerinden otomatik yapar.' ''
-  printf '%s\n' '## Kategoriler' ''
+  printf '%s\n' '---' '' '# AI Agent Library' ''
+  printf '%s\n' '> Obsidian navigation hub. Claude Code and Codex route independently through the compact catalog.' ''
+  printf '%s\n' '## Categories' ''
 } > "$ROOT_MAP"
 
 total=0
 while IFS=$'\t' read -r category label color; do
-  category_dir="$MAP_ROOT/Kategoriler/$category"
+  category_dir="$MAP_ROOT/Categories/$category"
   category_map="$category_dir/$label.md"
   mkdir -p "$category_dir"
 
   count="$(awk -F '\t' -v category="$category" 'NR > 1 && $2 == category { count++ } END { print count + 0 }' "$CATALOG")"
   total=$((total + count))
-  printf -- '- [[Agent Kütüphanesi/Kategoriler/%s/%s|%s]] — %s agent\n' "$category" "$label" "$label" "$count" >> "$ROOT_MAP"
+  printf -- '- [[Agent Library/Categories/%s/%s|%s]] — %s agents\n' "$category" "$label" "$label" "$count" >> "$ROOT_MAP"
 
   {
     printf '%s\n' '---'
@@ -53,9 +53,9 @@ while IFS=$'\t' read -r category label color; do
     printf 'category: %s\n' "$category"
     printf 'graph-color: "%s"\n' "$color"
     printf '%s\n' '---' '' "# $label" ''
-    printf '[[Ana Sayfa|← Ana Sayfa]]\n\n'
-    printf '**%s agent** · Renk: `%s`\n\n' "$count" "$color"
-    printf '%s\n' '## Agent’lar' ''
+    printf '[[Home|← Home]]\n\n'
+    printf '**%s agents** · Color: `%s`\n\n' "$count" "$color"
+    printf '%s\n' '## Agents' ''
   } > "$category_map"
 
   while IFS=$'\t' read -r agent_slug agent_category source_path description; do
@@ -70,9 +70,9 @@ done < <(
 
 {
   printf '%s\n' '' '---' ''
-  printf '**Toplam:** %s katalog agent’ı (karantinadaki profiller hariç).\n' "$total"
-  printf '%s\n' '' 'Kaynak: `agency-agents/divisions.json` ve router agent kataloğu.'
+  printf '**Total:** %s catalog agents (quarantined profiles excluded).\n' "$total"
+  printf '%s\n' '' 'Source: `agency-agents/divisions.json` and the router agent catalog.'
 } >> "$ROOT_MAP"
 
-printf 'Obsidian agent haritası oluşturuldu: %s kategori, %s agent\n' \
-  "$(find "$MAP_ROOT/Kategoriler" -type f -name '*.md' | wc -l | tr -d ' ')" "$total"
+printf 'Obsidian agent map generated: %s categories, %s agents\n' \
+  "$(find "$MAP_ROOT/Categories" -type f -name '*.md' | wc -l | tr -d ' ')" "$total"

@@ -8,7 +8,7 @@ SOURCE_DIR="$ROOT_DIR/agency-agents"
 CATALOG="$ROOT_DIR/.claude/skills/workspace-router/references/agent-catalog.tsv"
 QUARANTINE="$ROOT_DIR/config/quarantine.txt"
 LOCK_FILE="$ROOT_DIR/config/upstream.lock"
-MAP_ROOT="$ROOT_DIR/Agent Kütüphanesi"
+MAP_ROOT="$ROOT_DIR/Agent Library"
 
 fail() {
   printf 'Validation failed: %s\n' "$1" >&2
@@ -28,7 +28,7 @@ required_files=(
   "$CATALOG"
   "$QUARANTINE"
   "$LOCK_FILE"
-  "$ROOT_DIR/Ana Sayfa.md"
+  "$ROOT_DIR/Home.md"
 )
 
 for required in "${required_files[@]}"; do
@@ -85,14 +85,14 @@ while IFS= read -r quarantined_path; do
   fi
 
   quarantined_stem="${quarantined_path%.md}"
-  if grep -R -F -q "$quarantined_stem" "$MAP_ROOT" "$ROOT_DIR/Ana Sayfa.md"; then
+  if grep -R -F -q "$quarantined_stem" "$MAP_ROOT" "$ROOT_DIR/Home.md"; then
     fail "quarantined profile appears in Obsidian map: $quarantined_path"
   fi
 done < "$QUARANTINE"
 
-map_count="$(find "$MAP_ROOT/Kategoriler" -type f -name '*.md' | wc -l | tr -d ' ')"
+map_count="$(find "$MAP_ROOT/Categories" -type f -name '*.md' | wc -l | tr -d ' ')"
 (( map_count > 0 )) || fail 'Obsidian category map is empty'
-grep -F -q "**Toplam:** $catalog_count katalog agent’ı" "$ROOT_DIR/Ana Sayfa.md" || \
+grep -F -q "**Total:** $catalog_count catalog agents" "$ROOT_DIR/Home.md" || \
   fail 'Obsidian map total does not match the agent catalog'
 
 if command -v python3 >/dev/null 2>&1; then

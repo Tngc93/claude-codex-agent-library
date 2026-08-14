@@ -31,8 +31,8 @@ is_quarantined() {
   awk 'NF && $1 !~ /^#/ { print $1 }' "$QUARANTINE_FILE" | grep -Fxq "$rel"
 }
 
-[[ -d "$SOURCE_DIR" ]] || { printf 'Upstream repo bulunamadı: %s\n' "$SOURCE_DIR" >&2; exit 1; }
-[[ -f "$QUARANTINE_FILE" ]] || { printf 'Karantina listesi bulunamadı.\n' >&2; exit 1; }
+[[ -d "$SOURCE_DIR" ]] || { printf 'Upstream repository not found: %s\n' "$SOURCE_DIR" >&2; exit 1; }
+[[ -f "$QUARANTINE_FILE" ]] || { printf 'Quarantine list not found.\n' >&2; exit 1; }
 
 mkdir -p "$(dirname "$CATALOG")"
 temp="$(mktemp "${TMPDIR:-/tmp}/agent-catalog.XXXXXX")"
@@ -55,10 +55,10 @@ done < <(find -H "$SOURCE_DIR" -mindepth 2 -type f -name '*.md' \
 
 duplicates="$(tail -n +2 "$temp" | cut -f1 | sort | uniq -d)"
 if [[ -n "$duplicates" ]]; then
-  printf 'Tekrarlanan agent slug bulundu:\n%s\n' "$duplicates" >&2
+  printf 'Duplicate agent slugs found:\n%s\n' "$duplicates" >&2
   exit 1
 fi
 
 mv "$temp" "$CATALOG"
 chmod 0644 "$CATALOG"
-printf 'Agent kataloğu oluşturuldu: %s kayıt\n' "$count"
+printf 'Agent catalog generated: %s entries\n' "$count"
