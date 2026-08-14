@@ -76,7 +76,7 @@ değiştirilmez.
 
 Klasörü Obsidian vault olarak da açabilirsin. Grafik şu hiyerarşiyi gösterir:
 
-![Seçici agent kütüphanesinin Obsidian grafik görünümü](docs/images/obsidian-agent-graph.jpeg)
+![Seçici agent kütüphanesinin Obsidian grafik görünümü](docs/images/obsidian-agent-graph.png)
 
 Ortadaki beyaz düğüm kütüphanenin başlangıç noktası olan `Ana Sayfa`dır. Büyük
 renkli düğümlerin her biri bir uzmanlık kategorisini, çevresindeki küçük düğümler

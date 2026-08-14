@@ -21,7 +21,7 @@ required_files=(
   "$ROOT_DIR/README.md"
   "$ROOT_DIR/LICENSE"
   "$ROOT_DIR/THIRD_PARTY_NOTICES.md"
-  "$ROOT_DIR/docs/images/obsidian-agent-graph.jpeg"
+  "$ROOT_DIR/docs/images/obsidian-agent-graph.png"
   "$ROOT_DIR/.claude/skills/workspace-router/SKILL.md"
   "$ROOT_DIR/.claude/skills/workspace-router/agents/openai.yaml"
   "$SOURCE_DIR/divisions.json"

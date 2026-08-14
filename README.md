@@ -99,7 +99,7 @@ not discover, copy, reorganize, or modify it.
 
 Open this directory as an Obsidian vault for a visual map:
 
-![Obsidian graph showing the selective agent library](docs/images/obsidian-agent-graph.jpeg)
+![Obsidian graph showing the selective agent library](docs/images/obsidian-agent-graph.png)
 
 The white center node is `Ana Sayfa`, the library's navigation root. Each large
 colored node is one specialist category, and the smaller nodes around it are the
