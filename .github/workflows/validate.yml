@@ -1,0 +1,28 @@
+name: Validate agent library
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository and pinned source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Validate structure and safety controls
+        run: ./scripts/validate.sh
+
+      - name: Verify generated catalog and map are current
+        run: |
+          ./scripts/build-agent-catalog.sh
+          ./scripts/build-obsidian-agent-map.sh
+          git diff --exit-code

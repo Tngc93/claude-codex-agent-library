@@ -1,0 +1,16 @@
+{
+  "userIgnoreFilters": [
+    "config/",
+    "scripts/",
+    "README.md",
+    "agency-agents/.github/",
+    "agency-agents/examples/",
+    "agency-agents/integrations/",
+    "agency-agents/scripts/",
+    "agency-agents/strategy/",
+    "agency-agents/CONTRIBUTING.md",
+    "agency-agents/CONTRIBUTING_zh-CN.md",
+    "agency-agents/README.md",
+    "agency-agents/SECURITY.md"
+  ]
+}

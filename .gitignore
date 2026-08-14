@@ -1,0 +1,15 @@
+.DS_Store
+.Trash/
+
+# Obsidian's per-device UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# Local Claude settings and local-only overrides
+.claude/settings.local.json
+.codex/
+*.local.md
+
+# Generated safety backups are intentionally local
+config/backups/

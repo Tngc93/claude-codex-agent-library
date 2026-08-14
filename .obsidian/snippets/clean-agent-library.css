@@ -1,0 +1,27 @@
+/* Keep the Obsidian file explorer focused on the human-facing agent library. */
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="config"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="scripts"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-file-title[data-path="README.md"],
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="agency-agents/.github"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="agency-agents/examples"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="agency-agents/integrations"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="agency-agents/scripts"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-folder:has(> .nav-folder-title[data-path="agency-agents/strategy"]),
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-file-title[data-path="agency-agents/CONTRIBUTING.md"],
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-file-title[data-path="agency-agents/CONTRIBUTING_zh-CN.md"],
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-file-title[data-path="agency-agents/README.md"],
+.workspace-leaf-content[data-type="file-explorer"]
+  .nav-file-title[data-path="agency-agents/SECURITY.md"] {
+  display: none;
+}
