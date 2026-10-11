@@ -10,6 +10,11 @@ and reads only the few specialist profiles that materially help with the task.
 No global installation. No per-task router prompt. No loading hundreds of agent
 profiles into context.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/how-it-works-dark.svg">
+  <img src="docs/assets/how-it-works-light.svg" alt="Animated diagram: you describe a task, Claude Code or Codex finds one router skill in the added AI-Agents folder, the router searches a TSV catalog of 269 profiles with quarantined ones excluded, reads one primary and up to two reviewer profiles, the project's own code stays the source of truth, and consequential actions wait for your approval" width="100%">
+</picture>
+
 ## Why this structure
 
 - **Selective loading:** one canonical router indexes 269 specialist profiles
@@ -71,6 +76,34 @@ Codex discovers the same router through `.agents/skills/workspace-router`. That
 path is a relative symbolic link to the canonical Claude skill, so the two tools
 cannot drift into different routing rules. If a newly cloned skill does not
 appear immediately, restart Codex once.
+
+## How routing works
+
+```mermaid
+flowchart LR
+  subgraph build["Build time · scripts/"]
+    direction TB
+    up["agency-agents/<br/>pinned upstream submodule"] --> cat["build-agent-catalog.sh"]
+    q["config/quarantine.txt"] -- "excluded" --> cat
+    cat --> tsv[("agent-catalog.tsv<br/>269 profiles · 17 categories")]
+    up --> mapper["build-obsidian-agent-map.sh"] --> graph["Obsidian category graph<br/>for humans"]
+  end
+
+  subgraph session["Your session"]
+    direction TB
+    task["Your task"] --> agent["Claude Code / Codex"]
+    agent -- "discovers" --> router["workspace-router skill<br/>.claude/skills · .agents/skills link"]
+    router -- "trivial task" --> project["Current project only"]
+    router -- "needs history" --> brain["Second-Brain folder<br/>optional, read-only"]
+    router -- "needs expertise" --> tsv
+    tsv -- "1 primary + at most 2 reviewers" --> picked["Selected profiles only"]
+    picked -- "advisory" --> agent
+    agent -- "large independent review" --> sub["Subagent with one profile"]
+    agent -- "publish · deploy · delete · spend" --> approve{"Your explicit approval"}
+  end
+```
+
+CI rebuilds the catalog and the Obsidian map on every pull request and fails if either is out of date.
 
 ## Separation of concerns
 
