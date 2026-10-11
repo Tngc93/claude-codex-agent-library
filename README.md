@@ -80,7 +80,7 @@ appear immediately, restart Codex once.
 ## How routing works
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph build["Build time · scripts/"]
     direction TB
     up["agency-agents/<br/>pinned upstream submodule"] --> cat["build-agent-catalog.sh"]

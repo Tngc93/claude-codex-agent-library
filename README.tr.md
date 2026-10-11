@@ -58,7 +58,7 @@ hemen görünmezse Codex'i bir kez yeniden başlat.
 ## Yönlendirme nasıl çalışır
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph build["Derleme · scripts/"]
     direction TB
     up["agency-agents/<br/>sabitlenmiş upstream submodule"] --> cat["build-agent-catalog.sh"]
