@@ -7,6 +7,11 @@ olarak seçilmek üzere düzenlenmiştir. Global agent kurulumu veya her görevd
 bir prompt yazmak gerekmez. Her iki uygulama da aynı `workspace-router` skill'ini
 kullanır; yüzlerce agent profilinin tamamı bağlama yüklenmez.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/how-it-works-dark.svg">
+  <img src="docs/assets/how-it-works-light.svg" alt="Animasyonlu diyagram: görevi anlatırsın, Claude Code ya da Codex eklenen AI-Agents klasöründe tek bir router skill'i bulur, router karantinadakiler hariç 269 profillik TSV kataloğunda arar, bir ana ve en fazla iki inceleyici profili okur, projenin kendi kodu belirleyici kalır ve önemli işlemler senin onayını bekler" width="100%">
+</picture>
+
 ## Hızlı kurulum
 
 ```bash
@@ -49,6 +54,34 @@ Codex aynı router'ı `.agents/skills/workspace-router` üzerinden keşfeder. Bu
 Claude tarafındaki canonical skill'e göreli bir sembolik bağlantıdır; böylece iki
 uygulamanın routing kuralları zamanla birbirinden kopmaz. Yeni klonlanan skill
 hemen görünmezse Codex'i bir kez yeniden başlat.
+
+## Yönlendirme nasıl çalışır
+
+```mermaid
+flowchart TB
+  subgraph build["Derleme · scripts/"]
+    direction TB
+    up["agency-agents/<br/>sabitlenmiş upstream submodule"] --> cat["build-agent-catalog.sh"]
+    q["config/quarantine.txt"] -- "hariç" --> cat
+    cat --> tsv[("agent-catalog.tsv<br/>269 profil · 17 kategori")]
+    up --> mapper["build-obsidian-agent-map.sh"] --> graph["Obsidian kategori grafiği<br/>insanlar için"]
+  end
+
+  subgraph session["Oturumun"]
+    direction TB
+    task["Görevin"] --> agent["Claude Code / Codex"]
+    agent -- "bulur" --> router["workspace-router skill'i<br/>.claude/skills · .agents/skills bağlantısı"]
+    router -- "basit görev" --> project["Yalnızca mevcut proje"]
+    router -- "geçmiş gerekli" --> brain["Second-Brain klasörü<br/>isteğe bağlı, salt okunur"]
+    router -- "uzmanlık gerekli" --> tsv
+    tsv -- "1 ana + en fazla 2 inceleyici" --> picked["Yalnızca seçilen profiller"]
+    picked -- "tavsiye" --> agent
+    agent -- "büyük bağımsız inceleme" --> sub["Tek profilli subagent"]
+    agent -- "yayın · deploy · silme · harcama" --> approve{"Açık onayın"}
+  end
+```
+
+CI, her pull request'te kataloğu ve Obsidian haritasını yeniden üretir; biri güncel değilse başarısız olur.
 
 ## Kaynakların ayrımı
 
