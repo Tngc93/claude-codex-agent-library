@@ -134,8 +134,8 @@ AI-Agents/
 ├── Agent Library/                    # Obsidian kategori haritaları
 ├── config/                            # karantina ve tekrar üretilebilir ayarlar
 ├── scripts/                           # kurulum, üretim ve doğrulama
-├── AGENTS.md                          # Codex bakım kuralları
-├── CLAUDE.md                          # Claude bakım kuralları
+├── AGENTS.md                          # tüm ajanlar için bakım kuralları
+├── CLAUDE.md                          # Claude Code için AGENTS.md'yi içe aktarır
 └── Home.md                            # Obsidian başlangıç noktası
 ```
 

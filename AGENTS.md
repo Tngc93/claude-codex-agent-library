@@ -2,7 +2,8 @@
 
 This repository is a read-mostly specialist prompt library for Codex and Claude
 Code. It is designed to be added beside an active project, not used as the
-project's code or knowledge store.
+project's code or knowledge store. These rules apply to both agents;
+`CLAUDE.md` imports this file.
 
 ## Source of truth
 
@@ -13,6 +14,7 @@ project's code or knowledge store.
   a relative symbolic link. Do not copy or fork the router instructions.
 - Rebuild generated files with `scripts/build-agent-catalog.sh` and
   `scripts/build-obsidian-agent-map.sh` after an approved upstream update.
+- Never copy the full agent library into a project's `.claude/agents/` directory.
 
 ## Safety
 

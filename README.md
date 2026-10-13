@@ -158,8 +158,8 @@ AI-Agents/
 ├── config/                            # quarantine and reproducible settings
 ├── scripts/                           # setup, generation, and validation
 ├── Home.md                            # Obsidian graph entry point
-├── AGENTS.md                           # Codex maintenance rules
-├── CLAUDE.md                          # repository maintenance rules
+├── AGENTS.md                           # maintenance rules for every agent
+├── CLAUDE.md                          # imports AGENTS.md for Claude Code
 └── README.md
 ```
 
